@@ -7,10 +7,16 @@ jQuery.easing._dd_easing = function(x, t, b, c, d) {
         return $(this).each(function() {
             if ($(this).is('input') && $(this).attr('type') == "text") {
 
+                var inputDate = new Date($(this).val());
+
+                if (inputDate == 'Invalid Date') {
+                    inputDate = new Date();
+                }
+
                 var
-                    t_y_cur = new Date().getFullYear(),
-                    t_d_cur = new Date().getDate(),
-                    t_m_cur = new Date().getMonth();
+                    t_y_cur = inputDate.getFullYear(),
+                    t_d_cur = inputDate.getDate(),
+                    t_m_cur = inputDate.getMonth();
 
                 var
                     _dd_m,
